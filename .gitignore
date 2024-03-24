@@ -1,16 +1,22 @@
-target
-.env
-.vscode
-bin
-config.json
-node_modules
-./package-lock.json
-hfuzz_target
-hfuzz_workspace
-**/*.so
-**/.DS_Store
-test-ledger
-docker-target
+# IDE & OS specific
+.DS_Store
 .idea
-.coderrect
-.turbo
+.vscode
+
+# Logs
+logs
+*.log
+
+# Dependencies
+node_modules
+
+# Coverage
+coverage
+.nyc_output
+
+# Release
+dist
+dist.browser
+
+# TypeScript
+declarations

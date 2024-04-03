@@ -30736,9 +30736,9 @@ var solanaStakePool = (function (exports) {
 	/**
 	 * Creates instructions required to deposit sol to stake pool.
 	 */
-	async function depositSol(connection, stakePoolAddress, from, lamports, destinationTokenAccount, referrerTokenAccount, depositAuthority) {
+	async function depositSol(connection, stakePoolAddress, from, lamports, destinationTokenAccount, referrerTokenAccount, depositAuthority, skipLamportsCheck) {
 	    const fromBalance = await connection.getBalance(from, 'confirmed');
-	    if (fromBalance < lamports) {
+	    if (!skipLamportsCheck && fromBalance < lamports) {
 	        throw new Error(`Not enough SOL to deposit into pool. Maximum deposit amount is ${lamportsToSol(fromBalance)} SOL.`);
 	    }
 	    const stakePoolAccount = await getStakePoolAccount(connection, stakePoolAddress);

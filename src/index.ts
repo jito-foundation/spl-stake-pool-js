@@ -272,9 +272,10 @@ export async function depositSol(
   destinationTokenAccount?: PublicKey,
   referrerTokenAccount?: PublicKey,
   depositAuthority?: PublicKey,
+  skipLamportsCheck?: boolean,
 ) {
   const fromBalance = await connection.getBalance(from, 'confirmed');
-  if (fromBalance < lamports) {
+  if (!skipLamportsCheck && fromBalance < lamports) {
     throw new Error(
       `Not enough SOL to deposit into pool. Maximum deposit amount is ${lamportsToSol(
         fromBalance,

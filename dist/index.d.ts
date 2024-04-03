@@ -64,7 +64,7 @@ export declare function depositStake(connection: Connection, stakePoolAddress: P
 /**
  * Creates instructions required to deposit sol to stake pool.
  */
-export declare function depositSol(connection: Connection, stakePoolAddress: PublicKey, from: PublicKey, lamports: number, destinationTokenAccount?: PublicKey, referrerTokenAccount?: PublicKey, depositAuthority?: PublicKey): Promise<{
+export declare function depositSol(connection: Connection, stakePoolAddress: PublicKey, from: PublicKey, lamports: number, destinationTokenAccount?: PublicKey, referrerTokenAccount?: PublicKey, depositAuthority?: PublicKey, skipLamportsCheck?: boolean): Promise<{
     instructions: TransactionInstruction[];
     signers: Signer[];
 }>;
